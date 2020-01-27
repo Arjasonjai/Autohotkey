@@ -30,19 +30,48 @@ Return
 ^!LButton::
 Loop
 {
-If (GetKeyState("Control", "P") && GetKeyState("Alt", "P")) { ;checks if the keys are held down
+If (GetKeyState("Control", "P") && GetKeyState("Alt", "P") && GetKeyState("LButton", "P")) { ;checks if the keys are held down
 sleep 50 ; doesn't work without sleep
 Send h ; shorcut for hand tool
 Click, down ; as I set the hotkey to ctrl alt left mouse button, I have to virtually press down the mouse button for it to work
 }
 else { ; I don't know why I put this else here, just in case
-Send v
+Send %currentTool%
 break
 }
 }
 Click, up
-sleep 10 ; sleep for no reason
-Send v ; I prefer going back to cursor mode. You can improve this by going back to whatever tool you previously was using, but I have no idea how to do it.
+sleep 50 ; sleep for no reason
+Send %currentTool% ; I prefer going back to cursor mode.
+return
+
+v:: 
+Send v
+currentTool = %A_thishotkey%
+return
+f:: 
+Send f
+currentTool = %A_thishotkey%
+return
+x:: 
+Send x
+currentTool = %A_thishotkey%
+return
++x:: 
+Send +x
+currentTool = %A_thishotkey%
+return
+p:: 
+Send p
+currentTool = %A_thishotkey%
+return
+h:: 
+Send h
+currentTool = %A_thishotkey%
+return
+t:: 
+Send t
+currentTool = %A_thishotkey%
 return
 
 ;rigt click playhead
