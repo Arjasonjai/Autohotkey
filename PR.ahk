@@ -305,253 +305,372 @@ BlockInput Default
 BlockInput MouseMoveOff 
 }
 
-
-findHotText()
+ScaleHotText()
 {
-MouseGetPos , xxx , yyy
-PixelSearch , Px , Py , xxx+50 , yyy , xxx+350 , yyy , 0x25351D , 30 , Fast RGB
-if ErrorLevel
+	MouseGetPos, xxx, yyy
+	PixelSearch, Px, Py, xxx+50, yyy, xxx+350, yyy, 0x25351D, 30, Fast RGB
+		if ErrorLevel
 	{
-	 sleep 100
-	 resetFromAutoVFX()
+		sleep 100
+		resetFromAutoVFX()
 	}
-else
+	else
 	{
-	 ;82 , 275>>308 , 290
-	 Mousemove , Px+226 , Py+15 , 0
-	 ; tooltip , where am I?
-	 ; tooltip,
+		;82, 275>>308, 290
+		Mousemove, Px+226, Py+15, 0
+		; tooltip, where am I?
+		; tooltip,
 	}
 	
 	Click down left
 	
-	GetKeyState , statefirstcheck , F3 , P
+	GetKeyState, statefirstcheck, F3, P
 	
 	if statefirstcheck=U
-		{
-		 Click up left
-		 Sleep 10
-		 resetFromAutoVFX()
-		}
-		
-
-Loop
-		{
-		blockinput , off
-		blockinput , MouseMoveOff
-		;tooltip , %VFXkey% Instant %foobar% mod
-		tooltip , ;removes any tooltips that might exist.
+	{
+		Click up left
+		Sleep 10
+		resetFromAutoVFX()
+	}
+	
+	
+	Loop
+	{
+		blockinput, off
+		blockinput, MouseMoveOff
+		;tooltip, %VFXkey% Instant %foobar% mod
+		tooltip, ;removes any tooltips that might exist.
 		sleep 15
-		GetKeyState , state , F3 , P
+		GetKeyState, state, F3, P
 		if state = U
-			{
+		{
 			Click up left
-			;tooltip , "%VFXkey% is now physically UP so we are exiting now"
+			;tooltip, "%VFXkey% is now physically UP so we are exiting now"
 			sleep 15
 			resetFromAutoVFX()
-			; MouseMove , Xbegin , Ybegin , 0
+			; MouseMove, Xbegin, Ybegin, 0
 			; tooltip,
-			; ToolTip ,  ,  ,  , 2
-			; blockinput , off
-			; blockinput , MouseMoveOff
+			; ToolTip, , , , 2
+			; blockinput, off
+			; blockinput, MouseMoveOff
 			Return
-			}
 		}
+	}
 }
 
 
 
-Hottextpos()
+HorizontalText()
 {
-MouseGetPos , xxx , yyy
-PixelSearch , Pxpos , Pypos , 81 , 247 , 478 , 270 , 0x25351D , 30 , Fast RGB
-if ErrorLevel
+	MouseGetPos, xxx, yyy
+	PixelSearch, Pxpos, Pypos, 81, 247, 478, 270, 0x25351D, 30, Fast RGB
+		if ErrorLevel
 	{
-	 sleep 100
-	 resetFromAutoVFX()
+		sleep 100
+		resetFromAutoVFX()
 	}
-else
+	else
 	{
-	 ;81 , 246>>307 , 264
-	 Mousemove , Pxpos+226 , Pypos+18 , 0
-	 ; tooltip , where am I?
-	 ; tooltip,
+		;81, 246>>307, 264
+		Mousemove, Pxpos+226, Pypos+18, 0
+		; tooltip, where am I?
+		; tooltip,
 	}
 	Click down left
 	
-	GetKeyState , statefirstcheck , F1 , P
+	GetKeyState, statefirstcheck, F1, P
 	
 	if statefirstcheck=U
-		{
-		 Click up left
-		 Sleep 10
-		 resetFromAutoVFX()
-		}
-		
-
-Loop
-		{
-		blockinput , off
-		blockinput , MouseMoveOff
-		;tooltip , %VFXkey% Instant %foobar% mod
-		tooltip , ;removes any tooltips that might exist.
+	{
+		Click up left
+		Sleep 10
+		resetFromAutoVFX()
+	}
+	
+	
+	Loop
+	{
+		blockinput, off
+		blockinput, MouseMoveOff
+		;tooltip, %VFXkey% Instant %foobar% mod
+		tooltip, ;removes any tooltips that might exist.
 		sleep 15
-		GetKeyState , state , F1 , P
+		GetKeyState, state, F1, P
 		if state = U
-			{
+		{
 			Click up left
-			;tooltip , "%VFXkey% is now physically UP so we are exiting now"
+			;tooltip, "%VFXkey% is now physically UP so we are exiting now"
 			sleep 15
 			resetFromAutoVFX()
-			; MouseMove , Xbegin , Ybegin , 0
+			; MouseMove, Xbegin, Ybegin, 0
 			; tooltip,
-			; ToolTip ,  ,  ,  , 2
-			; blockinput , off
-			; blockinput , MouseMoveOff
+			; ToolTip, , , , 2
+			; blockinput, off
+			; blockinput, MouseMoveOff
 			Return
-			}
 		}
-
+	}
+	
 }
 
 
 
 Rotation()
 {
-MouseGetPos , xxx , yyy
-PixelSearch , Pxpos , Pypos , 85 , 353 , 380 , 371 , 0x25351D , 30 , Fast RGB
-if ErrorLevel
+	MouseGetPos, xxx, yyy
+	PixelSearch, Pxpos, Pypos, 85, 353, 380, 371, 0x25351D, 30, Fast RGB
+		if ErrorLevel
 	{
-	 sleep 100
-	 resetFromAutoVFX()
+		sleep 100
+		resetFromAutoVFX()
 	}
-else
+	else
 	{
-	 ;81 , 246>>307 , 264
-	 Mousemove , Pxpos+226 , Pypos+18 , 0
-	 ; tooltip , where am I?
-	 ; tooltip,
+		;81, 246>>307, 264
+		Mousemove, Pxpos+226, Pypos+18, 0
+		; tooltip, where am I?
+		; tooltip,
 	}
 	Click down left
 	
-	GetKeyState , statefirstcheck , F4 , P
+	GetKeyState, statefirstcheck, F4, P
 	
 	if statefirstcheck=U
-		{
-		 Click up left
-		 Sleep 10
-		 resetFromAutoVFX()
-		}
-		
-
-Loop
-		{
-		blockinput , off
-		blockinput , MouseMoveOff
-		;tooltip , %VFXkey% Instant %foobar% mod
-		tooltip , ;removes any tooltips that might exist.
+	{
+		Click up left
+		Sleep 10
+		resetFromAutoVFX()
+	}
+	
+	
+	Loop
+	{
+		blockinput, off
+		blockinput, MouseMoveOff
+		;tooltip, %VFXkey% Instant %foobar% mod
+		tooltip, ;removes any tooltips that might exist.
 		sleep 15
-		GetKeyState , state , F4 , P
+		GetKeyState, state, F4, P
 		if state = U
-			{
+		{
 			Click up left
-			;tooltip , "%VFXkey% is now physically UP so we are exiting now"
+			;tooltip, "%VFXkey% is now physically UP so we are exiting now"
 			sleep 15
 			resetFromAutoVFX()
-			; MouseMove , Xbegin , Ybegin , 0
+			; MouseMove, Xbegin, Ybegin, 0
 			; tooltip,
-			; ToolTip ,  ,  ,  , 2
-			; blockinput , off
-			; blockinput , MouseMoveOff
+			; ToolTip, , , , 2
+			; blockinput, off
+			; blockinput, MouseMoveOff
 			Return
-			}
 		}
-
+	}
+	
 }
 
 
 
-Hottextposs()
+VerticalHotText()
 {
-MouseGetPos , F2posx , F2posy
-;57 , 252 >>369 , 263 
-Mousemove , 368 , 263 , 0
-
-
+	MouseGetPos, F2posx, F2posy
+	;57, 252 >>369, 263 
+	Mousemove, 368, 263, 0
+	
+	
 	Click down left
 	
-	GetKeyState , statefirstcheck , F2 , P
+	GetKeyState, statefirstcheck, F2, P
 	
 	if statefirstcheck=U
-		{
-		 Click up left
-		 Sleep 10
-		 resetFromAutoVFX()
-		}
-		
-
-Loop
-		{
-		blockinput , off
-		blockinput , MouseMoveOff
-		; tooltip , %VFXkey% Instant %foobar% mod
-		tooltip , ;removes any tooltips that might exist.
+	{
+		Click up left
+		Sleep 10
+		resetFromAutoVFX()
+	}
+	
+	
+	Loop
+	{
+		blockinput, off
+		blockinput, MouseMoveOff
+		; tooltip, %VFXkey% Instant %foobar% mod
+		tooltip, ;removes any tooltips that might exist.
 		sleep 15
-		GetKeyState , state , F2 , P
+		GetKeyState, state, F2, P
 		if state = U
-			{
+		{
 			Click up left
-			; tooltip , "%VFXkey% is now physically UP so we are exiting now"
+			; tooltip, "%VFXkey% is now physically UP so we are exiting now"
 			sleep 15
 			resetFromAutoVFX()
-			; MouseMove , Xbegin , Ybegin , 0
+			; MouseMove, Xbegin, Ybegin, 0
 			; tooltip,
-			; ToolTip ,  ,  ,  , 2
-			; blockinput , off
-			; blockinput , MouseMoveOff
+			; ToolTip, , , , 2
+			; blockinput, off
+			; blockinput, MouseMoveOff
 			Return
-			}
 		}
-
+	}
+	
 }
 
 
-Restart()
+RestartScale()
 {
-MouseGetPos , posxxx , posyyy
-BlockInput , SendAndMouse
-BlockInput , MouseMove
-BlockInput , On
-Send +1
-ControlGetPos  , Xcontrol , Ycontrol , Width , Height , DroverLord - Window Class1 , ahk_class Premiere Pro
-;9 , 117>>26 , 233 (less often used)
-XX := Xcontrol+17
-YY := Ycontrol+116
-MouseMove XX , YY , 0
-; MouseMove Xcontrol , Ycontrol , 0
-sleep 10
-PixelGetColor , ccolor , XX , YY
-if (ccolor = "0x7F7F7F") ;closed
+	MouseGetPos, posxxx, posyyy
+	BlockInput, SendAndMouse
+	BlockInput, MouseMove
+	BlockInput, On
+	Send +8
+	ControlGetPos , Xcontrol, Ycontrol, Width, Height, DroverLord - Window Class1, ahk_class Premiere Pro
+	;9, 117>>26, 233 (less often used)
+	XX := Xcontrol+17
+	YY := Ycontrol+116
+	MouseMove XX, YY, 0
+	; MouseMove Xcontrol, Ycontrol, 0
+	sleep 10
+	PixelGetColor, ccolor, XX, YY
+	if (ccolor = "0x7F7F7F") ;closed
 	{
-	click
-	ImageSearch , ScaleX , ScaleY , 0 , 64 , 693 ,782 , D:\Autohotkey\scale.PNG
+		click
+		ImageSearch, ScaleX, ScaleY, 0, 64, 693,782, D:\Autohotkey\scale.PNG
 		if ErrorLevel = 0
 		{
-		 MouseMove , ScaleX , ScaleY , 0
+			MouseMove, ScaleX, ScaleY, 0
 		}
 		
 	}
-else if (ccolor = "0x222222") ;opened
-{
-	blockinput , Mouse
-	sleep 5
-	ImageSearch , ScaleX , ScaleY , 0 , 64 , 693 ,782 , D:\Autohotkey\scale.PNG
-	if ErrorLevel = 0
+	else if (ccolor = "0x222222") ;opened
 	{
-	 MouseMove , ScaleX , ScaleY , 0
+		blockinput, Mouse
+		sleep 5
+		ImageSearch, ScaleX, ScaleY, 0, 64, 693,782, D:\Autohotkey\scale.PNG
+		if ErrorLevel = 0
+		{
+			MouseMove, ScaleX, ScaleY, 0
+		}
+		
 	}
-	
 }
+
+
+
+RestartHorizontal()
+{
+	MouseGetPos, posxxx, posyyy
+	BlockInput, SendAndMouse
+	BlockInput, MouseMove
+	BlockInput, On
+	Send +8
+	ControlGetPos , Xcontrol, Ycontrol, Width, Height, DroverLord - Window Class1, ahk_class Premiere Pro
+	;9, 117>>26, 233 (less often used)
+	XX := Xcontrol+17
+	YY := Ycontrol+116
+	MouseMove XX, YY, 0
+	; MouseMove Xcontrol, Ycontrol, 0
+	sleep 10
+	PixelGetColor, ccolor, XX, YY
+	if (ccolor = "0x7F7F7F") ;closed
+	{
+		click
+		ImageSearch, ScaleX, ScaleY, 0, 64, 693,782, D:\Autohotkey\Position.PNG
+		if ErrorLevel = 0
+		{
+			MouseMove, ScaleX, ScaleY, 0
+		}
+		
+	}
+	else if (ccolor = "0x222222") ;opened
+	{
+		blockinput, Mouse
+		sleep 5
+		ImageSearch, ScaleX, ScaleY, 0, 64, 693,782, D:\Autohotkey\Position.PNG
+		if ErrorLevel = 0
+		{
+			MouseMove, ScaleX, ScaleY, 0
+		}
+		
+	}
+}
+
+
+RestartRotation()
+{
+	MouseGetPos, posxxx, posyyy
+	BlockInput, SendAndMouse
+	BlockInput, MouseMove
+	BlockInput, On
+	Send +8
+	ControlGetPos , Xcontrol, Ycontrol, Width, Height, DroverLord - Window Class1, ahk_class Premiere Pro
+	;9, 117>>26, 233 (less often used)
+	XX := Xcontrol+17
+	YY := Ycontrol+116
+	MouseMove XX, YY, 0
+	; MouseMove Xcontrol, Ycontrol, 0
+	sleep 10
+	PixelGetColor, ccolor, XX, YY
+	if (ccolor = "0x7F7F7F") ;closed
+	{
+		click
+		ImageSearch, ScaleX, ScaleY, 0, 64, 693,782, D:\Autohotkey\rotation.PNG
+		if ErrorLevel = 0
+		{
+			MouseMove, ScaleX, ScaleY, 0
+		}
+		
+	}
+	else if (ccolor = "0x222222") ;opened
+	{
+		blockinput, Mouse
+		sleep 5
+		ImageSearch, ScaleX, ScaleY, 0, 64, 693,782, D:\Autohotkey\rotation.PNG
+		if ErrorLevel = 0
+		{
+			MouseMove, ScaleX, ScaleY, 0
+		}
+		
+	}
+}
+
+
+RestartMotionIcon()
+{
+	MouseGetPos, posxxx, posyyy
+	BlockInput, SendAndMouse
+	BlockInput, MouseMove
+	BlockInput, On
+	Send +8
+	ControlGetPos , Xcontrol, Ycontrol, Width, Height, DroverLord - Window Class1, ahk_class Premiere Pro
+	;9, 117>>26, 233 (less often used)
+	XX := Xcontrol+17
+	YY := Ycontrol+116
+	MouseMove XX, YY, 0
+	; MouseMove Xcontrol, Ycontrol, 0
+	sleep 10
+	PixelGetColor, ccolor, XX, YY
+	if (ccolor = "0x7F7F7F") ;closed
+	{
+		click
+		ImageSearch, ScaleX, ScaleY, 0, 64, 693,782, D:\Autohotkey\Motion.png
+		if ErrorLevel = 0
+		{
+			MouseMove, ScaleX, ScaleY, 0
+			click
+		}
+		
+	}
+	else if (ccolor = "0x222222") ;opened
+	{
+		blockinput, Mouse
+		sleep 5
+		ImageSearch, ScaleX, ScaleY, 0, 64, 693,782, D:\Autohotkey\Motion.png
+		if ErrorLevel = 0
+		{
+			MouseMove, ScaleX, ScaleY, 0
+			click
+		}
+		
+	}
 }
 
 ;instant horizontal
@@ -609,7 +728,7 @@ else
 	resetFromAutoVFX()
 	}
 	
-Hottextpos(H)
+HorizontalText()
 MouseMove , posxxx , posyyy , 0
 BlockInput off
 BlockInput Default
@@ -665,7 +784,7 @@ else if (colorr <> "0x222222" || colorr <> "0x7F7F7F" )
 	 ; MouseMove , F2posx , F2posy , 0
 	; }	
 }
-Hottextposs(V)
+VerticalHotText()
 MouseMove , posxxx , posyyy , 0
 BlockInput off
 BlockInput Default
@@ -735,7 +854,7 @@ else
 	resetFromAutoVFX()
 	}
 
-findHotText(Scale)
+ScaleHotText()
 MouseMove , posxxx , posyyy , 0
 BlockInput off
 BlockInput Default
@@ -810,7 +929,77 @@ BlockInput Default
 BlockInput MouseMoveOff 
 Return
 
+; Clicking the motion icon
+F5::
+; CoordMode, Mouse, Screen
+MouseGetPos, posxxx, posyyy
+BlockInput, SendAndMouse
+BlockInput, MouseMove
+BlockInput, On
+Send +8
+ControlGetPos , Xcontrol, Ycontrol, Width, Height, DroverLord - Window Class1, ahk_class Premiere Pro
+;9, 117>>26, 233 (less often used)
+XX := Xcontrol+17
+YY := Ycontrol+116
+MouseMove XX, YY, 0
+; MouseMove Xcontrol, Ycontrol, 0
+sleep 10
+PixelGetColor, ccolor, XX, YY
+if (ccolor = "0x7F7F7F") ;closed
+	{
+	click
+	ImageSearch, ScaleX, ScaleY, 0, 64, 693,782, D:\Autohotkey\Motion.png
+		if ErrorLevel = 0
+		{
+		 MouseMove, ScaleX, ScaleY, 0
+		 click
+		}
+		else {
+			msgbox, not found
+		}
+		
+	}
+else if (ccolor = "0x222222") ;opened
+{
+	blockinput, Mouse
+	sleep 5
+	ImageSearch, ScaleX, ScaleY, 0, 64, 693,782, D:\Autohotkey\Motion.png
+	if ErrorLevel = 0
+	{
+	 MouseMove, ScaleX, ScaleY, 0
+	 click
+	}
+	else{
+		msgbox, not found
+	}
+	
+}
+else if (ccolor <> "0x222222" || ccolor <> "0x7F7F7F" )
+{
+	Send u
+	sleep 10
+	Send u
+	RestartMotionIcon()
+	; ImageSearch, ScaleX, ScaleY, 0, 64, 693,782, D:\Autohotkey\scale.PNG
+	; if ErrorLevel = 0
+	; {
+	 ; MouseMove, ScaleX, ScaleY, 0
+	; }
+}
 
+else
+	{
+	msgbox, not found
+	tooltip, %colorr% not expected
+	;play noise
+	resetFromAutoVFX()
+	}
+
+MouseMove, posxxx, posyyy, 0
+BlockInput off
+BlockInput Default
+BlockInput MouseMoveOff 
+Return
 
 /*;lock Audio track 1
 ^!Numpad1::
