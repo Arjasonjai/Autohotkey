@@ -675,36 +675,36 @@ RestartMotionIcon()
 
 ;instant horizontal
 F1::
-MouseGetPos , posxxx , posyyy
-BlockInput , SendAndMouse
-BlockInput , MouseMove
-BlockInput , On
-Send +1
-ControlGetPos  , Xcontrol , Ycontrol , Width , Height , DroverLord - Window Class1 , ahk_class Premiere Pro
-;9 , 117>>26 , 233 (less often used)
+MouseGetPos, posxxx, posyyy
+BlockInput, SendAndMouse
+BlockInput, MouseMove
+BlockInput, On
+Send +8
+ControlGetPos , Xcontrol, Ycontrol, Width, Height, DroverLord - Window Class1, ahk_class Premiere Pro
+;9, 117>>26, 233 (less often used)
 XX := Xcontrol+17
 YY := Ycontrol+116
-MouseMove XX , YY , 0
-; MouseMove Xcontrol , Ycontrol , 0
+MouseMove XX, YY, 0
+; MouseMove Xcontrol, Ycontrol, 0
 sleep 10
-PixelGetColor , ccolor , XX , YY
+PixelGetColor, ccolor, XX, YY
 if (ccolor = "0x7F7F7F") ;closed
 	{
 	click
-	ImageSearch , possX , possY , 0 , 64 , 693 ,782 , D:\Autohotkey\Position.PNG
+	ImageSearch, possX, possY, 0, 64, 693,782, D:\Autohotkey\Position.PNG
 		if ErrorLevel = 0
 		{
-		 MouseMove , possX , possY , 0
+		 MouseMove, possX, possY, 0
 		}
 		
 	}
 else if (ccolor = "0x222222") ;opened
 {
-	blockinput , Mouse
+	blockinput, Mouse
 	sleep 5
-	ImageSearch , possX , possY , 0 , 64 , 693 ,782 , D:\Autohotkey\Position.PNG
+	ImageSearch, possX, possY, 0, 64, 693,782, D:\Autohotkey\Position.PNG
 	{
-	 MouseMove , possX , possY , 0
+	 MouseMove, possX, possY, 0
 	}
 	
 }
@@ -713,23 +713,24 @@ else if (colorr <> "0x222222" || colorr <> "0x7F7F7F" )
 	Send u
 	sleep 10
 	Send u
-	Restart()
-	; ImageSearch , possX , possY , 0 , 64 , 693 ,782 , D:\Autohotkey\Position.PNG
+	; resetFromAutoVFX()
+	RestartHorizontal()
+	; ImageSearch, possX, possY, 0, 64, 693,782, D:\Autohotkey\Position.PNG
 	; if ErrorLevel = 0
 	; {
-	 ; MouseMove , possX , possY , 0
+	 ; MouseMove, possX, possY, 0
 	; }	
 }
 
 else
 	{
-	tooltip , %colorr% not expected
+	tooltip, %colorr% not expected
 	;play noise
 	resetFromAutoVFX()
 	}
 	
 HorizontalText()
-MouseMove , posxxx , posyyy , 0
+MouseMove, posxxx, posyyy, 0
 BlockInput off
 BlockInput Default
 BlockInput MouseMoveOff 
@@ -739,36 +740,36 @@ Return
 
 ;instant Vertical
 F2::
-MouseGetPos , posxxx , posyyy
-BlockInput , SendAndMouse
-BlockInput , MouseMove
-BlockInput , On
-Send +1
-ControlGetPos  , Xcontrol , Ycontrol , Width , Height , DroverLord - Window Class1 , ahk_class Premiere Pro
-;9 , 117>>26 , 233 (less often used)
+MouseGetPos, posxxx, posyyy
+BlockInput, SendAndMouse
+BlockInput, MouseMove
+BlockInput, On
+Send +8
+ControlGetPos , Xcontrol, Ycontrol, Width, Height, DroverLord - Window Class1, ahk_class Premiere Pro
+;9, 117>>26, 233 (less often used)
 XX := Xcontrol+17
 YY := Ycontrol+116
-MouseMove XX , YY , 0
-; MouseMove Xcontrol , Ycontrol , 0
+MouseMove XX, YY, 0
+; MouseMove Xcontrol, Ycontrol, 0
 sleep 10
-PixelGetColor , ccolor , XX , YY
+PixelGetColor, ccolor, XX, YY
 if (ccolor = "0x7F7F7F") ;closed
 	{
 	click
-	ImageSearch , F2posx , F2posy , 0 , 64 , 693 ,782 , D:\Autohotkey\Position.PNG
+	ImageSearch, F2posx, F2posy, 0, 64, 693,782, D:\Autohotkey\Position.PNG
 		if ErrorLevel = 0
 		{
-		 MouseMove , F2posx , F2posy , 0
+		 MouseMove, F2posx, F2posy, 0
 		}
 		
 	}
 else if (ccolor = "0x222222") ;opened
 {
-	blockinput , Mouse
+	blockinput, Mouse
 	sleep 5
-	ImageSearch , F2posx , F2posy , 0 , 64 , 693 ,782 , D:\Autohotkey\Position.PNG
+	ImageSearch, F2posx, F2posy, 0, 64, 693,782, D:\Autohotkey\Position.PNG
 	{
-	 MouseMove , F2posx , F2posy , 0
+	 MouseMove, F2posx, F2posy, 0
 	}
 	
 }
@@ -777,15 +778,15 @@ else if (colorr <> "0x222222" || colorr <> "0x7F7F7F" )
 	Send u
 	sleep 10
 	Send u
-	Restart()
-	; ImageSearch , F2posx , F2posy , 0 , 64 , 693 ,782 , D:\Autohotkey\Position.PNG
+	RestartHorizontal()
+	; ImageSearch, F2posx, F2posy, 0, 64, 693,782, D:\Autohotkey\Position.PNG
 	; if ErrorLevel = 0
 	; {
-	 ; MouseMove , F2posx , F2posy , 0
+	 ; MouseMove, F2posx, F2posy, 0
 	; }	
 }
 VerticalHotText()
-MouseMove , posxxx , posyyy , 0
+MouseMove, posxxx, posyyy, 0
 BlockInput off
 BlockInput Default
 BlockInput MouseMoveOff 
@@ -795,67 +796,73 @@ Return
 
 
 
-
-
 ;Instant Scale 
 F3::
-; CoordMode , Mouse , Screen
-MouseGetPos , posxxx , posyyy
-BlockInput , SendAndMouse
-BlockInput , MouseMove
-BlockInput , On
-Send +1
-ControlGetPos  , Xcontrol , Ycontrol , Width , Height , DroverLord - Window Class1 , ahk_class Premiere Pro
-;9 , 117>>26 , 233 (less often used)
+; CoordMode, Mouse, Screen
+MouseGetPos, posxxx, posyyy
+BlockInput, SendAndMouse
+BlockInput, MouseMove
+BlockInput, On
+Send +8
+ControlGetPos , Xcontrol, Ycontrol, Width, Height, DroverLord - Window Class1, ahk_class Premiere Pro
+;9, 117>>26, 233 (less often used)
 XX := Xcontrol+17
 YY := Ycontrol+116
-MouseMove XX , YY , 0
-; MouseMove Xcontrol , Ycontrol , 0
+MouseMove XX, YY, 0
+; MouseMove Xcontrol, Ycontrol, 0
 sleep 10
-PixelGetColor , ccolor , XX , YY
+PixelGetColor, ccolor, XX, YY
 if (ccolor = "0x7F7F7F") ;closed
 	{
 	click
-	ImageSearch , ScaleX , ScaleY , 0 , 64 , 693 ,782 , D:\Autohotkey\scale.PNG
+	ImageSearch, ScaleX, ScaleY, 0, 64, 693,782, D:\Autohotkey\scale.PNG
 		if ErrorLevel = 0
 		{
-		 MouseMove , ScaleX , ScaleY , 0
+		 MouseMove, ScaleX, ScaleY, 0
+		}
+		else {
+			msgbox, not found
 		}
 		
 	}
 else if (ccolor = "0x222222") ;opened
 {
-	blockinput , Mouse
+	blockinput, Mouse
 	sleep 5
-	ImageSearch , ScaleX , ScaleY , 0 , 64 , 693 ,782 , D:\Autohotkey\scale.PNG
+	ImageSearch, ScaleX, ScaleY, 0, 64, 693,782, D:\Autohotkey\scale.PNG
 	if ErrorLevel = 0
 	{
-	 MouseMove , ScaleX , ScaleY , 0
+	 MouseMove, ScaleX, ScaleY, 0
+	}
+	else{
+		msgbox, not found
 	}
 	
 }
-else if (colorr <> "0x222222" || colorr <> "0x7F7F7F" )
+else if (ccolor <> "0x222222" || ccolor <> "0x7F7F7F" )
 {
 	Send u
 	sleep 10
 	Send u
-	Restart()
-	; ImageSearch , ScaleX , ScaleY , 0 , 64 , 693 ,782 , D:\Autohotkey\scale.PNG
+	; resetFromAutoVFX()
+	RestartScale()
+	; ImageSearch, ScaleX, ScaleY, 0, 64, 693,782, D:\Autohotkey\scale.PNG
 	; if ErrorLevel = 0
 	; {
-	 ; MouseMove , ScaleX , ScaleY , 0
+	 ; MouseMove, ScaleX, ScaleY, 0
 	; }
 }
 
 else
 	{
-	tooltip , %colorr% not expected
+	msgbox, not found
+	tooltip, %colorr% not expected
 	;play noise
 	resetFromAutoVFX()
 	}
 
 ScaleHotText()
-MouseMove , posxxx , posyyy , 0
+MouseMove, posxxx, posyyy, 0
 BlockInput off
 BlockInput Default
 BlockInput MouseMoveOff 
@@ -867,38 +874,38 @@ Return
 
 ;Instant Rotation
 F4::
-; CoordMode , Mouse , Screen
-MouseGetPos , posxxx , posyyy
-BlockInput , SendAndMouse
-BlockInput , MouseMove
-BlockInput , On
-Send +1
-ControlGetPos  , Xcontrol , Ycontrol , Width , Height , DroverLord - Window Class1 , ahk_class Premiere Pro
-;9 , 117>>26 , 233 (less often used)
+; CoordMode, Mouse, Screen
+MouseGetPos, posxxx, posyyy
+BlockInput, SendAndMouse
+BlockInput, MouseMove
+BlockInput, On
+Send +8
+ControlGetPos , Xcontrol, Ycontrol, Width, Height, DroverLord - Window Class1, ahk_class Premiere Pro
+;9, 117>>26, 233 (less often used)
 XX := Xcontrol+17
 YY := Ycontrol+116
-MouseMove XX , YY , 0
-; MouseMove Xcontrol , Ycontrol , 0
+MouseMove XX, YY, 0
+; MouseMove Xcontrol, Ycontrol, 0
 sleep 10
-PixelGetColor , ccolor , XX , YY
+PixelGetColor, ccolor, XX, YY
 if (ccolor = "0x7F7F7F") ;closed
 	{
 	click
-	ImageSearch , ScaleX , ScaleY , 0 , 64 , 693 ,782 , D:\Autohotkey\rotation.PNG
+	ImageSearch, ScaleX, ScaleY, 0, 64, 693,782, D:\Autohotkey\rotation.PNG
 		if ErrorLevel = 0
 		{
-		 MouseMove , ScaleX , ScaleY , 0
+		 MouseMove, ScaleX, ScaleY, 0
 		}
 		
 	}
 else if (ccolor = "0x222222") ;opened
 {
-	blockinput , Mouse
+	blockinput, Mouse
 	sleep 5
-	ImageSearch , ScaleX , ScaleY , 0 , 64 , 693 ,782 , D:\Autohotkey\rotation.PNG
+	ImageSearch, ScaleX, ScaleY, 0, 64, 693,782, D:\Autohotkey\rotation.PNG
 	if ErrorLevel = 0
 	{
-	 MouseMove , ScaleX , ScaleY , 0
+	 MouseMove, ScaleX, ScaleY, 0
 	}
 	
 }
@@ -907,27 +914,28 @@ else if (colorr <> "0x222222" || colorr <> "0x7F7F7F" )
 	Send u
 	sleep 10
 	Send u
-	Restart()
-	; ImageSearch , ScaleX , ScaleY , 0 , 64 , 693 ,782 , D:\Autohotkey\rotation.PNG
+	RestartRotation()
+	; ImageSearch, ScaleX, ScaleY, 0, 64, 693,782, D:\Autohotkey\rotation.PNG
 	; if ErrorLevel = 0
 	; {
-	 ; MouseMove , ScaleX , ScaleY , 0
+	 ; MouseMove, ScaleX, ScaleY, 0
 	; }	
 }
 
 else
 	{
-	tooltip , %colorr% not expected
+	tooltip, %colorr% not expected
 	;play noise
 	resetFromAutoVFX()
 	}
 	
 Rotation()
-MouseMove , posxxx , posyyy , 0
+MouseMove, posxxx, posyyy, 0
 BlockInput off
 BlockInput Default
 BlockInput MouseMoveOff 
 Return
+
 
 ; Clicking the motion icon
 F5::
